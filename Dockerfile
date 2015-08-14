@@ -19,5 +19,8 @@ RUN /bin/bash -c "git clone --depth 1 http://root.cern.ch/git/root.git -b v5-34-
    && cd .. \
    && rm -rf root"
 
+ENV LD_LIBRARY_PATH /usr/local/lib/root:$LD_LIBRARY_PATH
+ENV PYTHONPATH /usr/local/lib/root:$PYTHONPATH
+
 WORKDIR /home/jupyter
 USER jupyter
