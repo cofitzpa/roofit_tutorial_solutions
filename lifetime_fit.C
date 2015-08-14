@@ -70,12 +70,18 @@ void lifetime_fit(){
   TCanvas *c = new TCanvas("data","data",1024,512);
   c->Divide(2);
   c->cd(1);
-  gPad->SetLeftMargin(0.15); gPad->SetBottomMargin(0.15);
-
-  RooPlot *timeplot = obs_time.frame();
+        gPad->SetLeftMargin(0.15); gPad->SetBottomMargin(0.15);
+        RooPlot *massplot = obs_mass.frame();
+        data->plotOn(massplot);
+        massplot->Draw();
+        c->Update();
 
   //Now we update the time plot as we did for the mass:
   c->cd(2);
+  gPad->SetLogy();
+  gPad->SetLeftMargin(0.15); gPad->SetBottomMargin(0.15);
+  RooPlot *timeplot = obs_time.frame();
+  data->plotOn(timeplot);
   //The combined fit in solid blue:
   time_pdf->plotOn(timeplot);
   //The signal component only in dashed blue:
