@@ -1,9 +1,13 @@
 #!/bin/bash
 
 set -e
-workdir=`pwd`
+WORKDIR=`pwd`
 
-container_id=`docker run -d -v $workdir:/home/jupyter/analysis -p 8888 betatim/roofit-tutorial ipython notebook --ip=0.0.0.0 --no-browser`
+C_ANADIR="/home/jupyter/analysis"
+
+# Unclear why exactly you need to run the notebook with `sh -c`
+# Found this solution from ipython/ipython#7062 and ipython/docker-notebook#6
+container_id=`docker run -d -v $WORKDIR:$C_ANADIR -p 8888 betatim/roofit-tutorial sh -c "ipython notebook --ip=0.0.0.0 --no-browser --notebook-dir=$C_ANADIR"`
 
 if hash boot2docker 2>/dev/null; then
     connect_string=`docker port $container_id 8888 | sed -e 's/0.0.0.0/'$(boot2docker ip)'/'`
