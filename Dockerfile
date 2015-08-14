@@ -19,4 +19,5 @@ RUN /bin/bash -c "git clone --depth 1 http://root.cern.ch/git/root.git -b v5-34-
    && cd .. \
    && rm -rf root"
 
+WORKDIR /home/jupyter
 USER jupyter
