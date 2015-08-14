@@ -26,3 +26,9 @@
 *.exe
 *.out
 *.app
+
+# ROOT datasets
+*.root
+
+# IPython notebook
+.ipynb_checkpoints/*
