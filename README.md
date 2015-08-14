@@ -2,8 +2,17 @@
 
 Solutions to the [roofit_tutorial ](//github.com/cofitzpa/roofit_tutorial_solutions)
 
+# Dependencies
 
-# Docker container
+To run this tutorial you need to have [docker](//docker.com) installed.
+
+# Run it!
+
+To run the tutorial locally simply execute `run_local.sh`. It will
+print information on how to connect to the tutorial. As well as
+information on how to tidy up afterwards.
+
+# Building the docker container
 
 This tutorial is meant to run inside a docker container. You
 can get the container with `docker pull betatim/roofit-tutorial`.
